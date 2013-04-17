@@ -1,0 +1,112 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	width: 400px;
+	background-color: #222;
+	font-family: Helvetica,Arial,sans-serif;
+	font-size: 14px;
+	color: #f0f0f0;
+	text-shadow: 2px 2px 5px black;
+	padding: 10px;
+	margin: 0;
+	max-height: 410px;
+	overflow: hidden;
+}
+
+a {
+	text-decoration: none;
+	color: #fff;
+	border-bottom: 1px dotted #fff;
+}
+
+a:hover {
+	border-bottom: 1px solid #fff;
+}
+
+h1 {
+	background: url("http://www.dispatch.com/content/digital/images/toolbox-branding-sm.png") no-repeat;
+	height: 39px;
+	text-transform: lowercase;
+	text-indent: 145px;
+	display: inline-block;
+	margin: 0;
+	padding-top: 10px;
+}
+
+h2 {
+	text-transform: lowercase;
+	margin: 0;
+}
+
+ul {
+	margin: 5px 0 10px;
+	padding: 0 0 0 20px;
+}
+
+#nav, #Visualize {
+	padding: 0;
+}
+
+#nav li, #Visualize li {
+	display: inline-block;
+}
+
+#options {
+	float: right;
+	font-size: 10px;
+}
+
+.panel {
+	display: none;
+}
+
+#content-primary div:first-child {
+	display: block;
+}
+
+#quicklinks ul li {
+	margin-bottom: 3px;
+}
+
+select, option, input {
+	color: #f0f0f0;
+	font-size: 14px;
+	border: 1px solid #f0f0f0;
+	background: #222;
+	padding: 1px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+input {
+	padding: 2px;
+}
+
+#chartbeatnav {
+	margin-bottom: 3px;
+}
+
+#chartbeat {
+	background: url("http://www.dispatch.com/content/digital/images/toolbar/chartbeat-loader.gif") no-repeat center center;
+	min-height: 250px;
+	min-width: 350px;
+}
+
+.large {
+	height: 65px;
+	margin-bottom: 15px;
+}
+
+.large h1 {
+	height: 65px;
+	text-indent: 235px;
+	font-size: 60px !important;
+	padding: 0;
+	background: url("http://www.dispatch.com/content/digital/images/toolbox-branding-lg.png") no-repeat;
+}
+
+#dev-links {
+	display: none;
+}

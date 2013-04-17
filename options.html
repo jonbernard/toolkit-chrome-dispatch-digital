@@ -1,0 +1,58 @@
+<html>
+	<head>
+	
+		<title>Dispatch Digital Toolbox Options</title>
+		<link rel="stylesheet" type="text/css" href="css/popup.css" />
+		
+	</head>
+
+	<body>
+	
+		<header class="large">
+			<h1>Toolbox</h1>
+		</header>
+		<div id="content-primary">
+		
+			<div id="chartbeat-api">
+				Chartbeat API: <input type="text" id="chartbeatapi" size="30" />
+			</div>
+	
+			<div id="default-site">Default Site:
+				<select id="site-list">
+					<option value="">Choose Site</option>
+					<option value="dispatch.com">dispatch.com</option>
+					<option value="10tv.com">10tv.com</option>
+					<option value="971thefan.com">971thefan.com</option>
+					<option value="thisweeknews.com">thisweeknews.com</option>
+					<option value="capital-style.com">capital-style.com</option>
+					<option value="columbusalive.com">columbusalive.com</option>
+					<option value="columbuscrave.com">columbuscrave.com</option>
+					<option value="columbusparent.com">columbusparent.com</option>
+					<option value="buckeyextra.dispatch.com">buckeyextra</option>
+					<option value="bluejacketsxtra.dispatch.com">bluejacketsxtra</option>
+				</select>
+			</div>
+	
+			<div id="dev-options">Show Developer Options:
+				<select id="dev-select">
+					<option value="no">No</option>
+					<option value="yes">Yes</option>
+				</select>
+			</div>
+	
+			<div id="dev-options">View all sites in Chartbeat Leaderboard:
+				<select id="lballsites">
+					<option value="no">No</option>
+					<option value="yes">Yes</option>
+				</select>
+			</div>
+	
+			<div id="status"></div>
+			<button id="save">Save</button><button id="Reset">Reset</button>
+		</div>
+	</body>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/options.js"></script>
+
+</html>
