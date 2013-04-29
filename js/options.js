@@ -94,18 +94,17 @@ function restore_options() {
 		var devoptions = syncstorage.devoptions;
 		var lballsites = syncstorage.lballsites;
 		var siftedSetting = syncstorage.siftedSetting;
-		
-		// console.log('chartbeatapi: '+syncstorage.chartbeatapi+' || defaultsite: '+syncstorage.defaultsite+' || devoptions: '+syncstorage.devoptions+' || lballsites: '+syncstorage.lballsites);
 			
-		if (chartbeatapi == "") {
-			return;
-		}
-		
-		$("#chartbeatapi").val(chartbeatapi);
 		$("#site-list").val(defaultsite);
 		$("#dev-select").val(devoptions);
 		$("#lballsites").val(lballsites);
 		$("#siftedSetting").val(siftedSetting);
+		
+		if (chartbeatapi == "") {
+			return;
+		} else {
+			$("#chartbeatapi").val(chartbeatapi);
+		}
 	});
 }
 

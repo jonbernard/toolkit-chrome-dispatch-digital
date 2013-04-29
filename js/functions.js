@@ -86,41 +86,58 @@ chrome storage api and checks to see if items are set. If not.
 It will set them.
 */
 
+var storageArray = "";
+
 chrome.storage.sync.get(['chartbeatapi', 'defaultsite', 'devoptions', 'lballsites', 'siftedSetting'], function(syncstorage) {
+	storageArray = {chartbeatapi: syncstorage.chartbeatapi, defaultsite: syncstorage.defaultsite, devoptions: syncstorage.devoptions, lballsites: syncstorage.lballsites, siftedSetting: syncstorage.siftedSetting};
 	
-	var setchartbeatapi = "aa9eb4c1cd9790ca445b4d0d6dc4b446";
+	if (storageArray["devoptions"] == 1) {
+		console.log(storageArray);
+	}
+	
+	var setchartbeatapi = "";
 	var setdefaultsite = "";
 	var setdevoptions = "";
 	var setSiftedSetting = "";
 	var lballsites = 0;
 	
-	if (syncstorage.chartbeatapi == null || syncstorage.chartbeatapi == "478dc9040abea1cf7e5529c938a8e501") {
+	if (syncstorage.chartbeatapi == null) {
 		chrome.storage.sync.set({'chartbeatapi': setchartbeatapi}, function() {
-			console.log("Installed default 'chartbeatapi' value");
+			if (storageArray["devoptions"] == 1) {
+				console.log("Installed default 'chartbeatapi' value");
+			}
 		});
 	}
 	
 	if (syncstorage.defaultsite == null) {
 		chrome.storage.sync.set({'defaultsite': setdefaultsite}, function() {
-			console.log("Installed default 'defaultsite' value");
+			if (storageArray["devoptions"] == 1) {
+				console.log("Installed default 'defaultsite' value");
+			}
 		});
 	}
 	
 	if (syncstorage.devoptions == null) {
 		chrome.storage.sync.set({'devoptions': setdevoptions}, function() {
-			console.log("Installed default 'devoptions' value");
+			if (storageArray["devoptions"] == 1) {
+				console.log("Installed default 'devoptions' value");
+			}
 		});
 	}
 	
 	if (syncstorage.lballsites == null) {
 		chrome.storage.sync.set({'lballsites': lballsites}, function() {
-			console.log("Installed default 'lballsites' value");
+			if (storageArray["devoptions"] == 1) {
+				console.log("Installed default 'lballsites' value");
+			}
 		});
 	}
 	
 	if (syncstorage.siftedSetting == null) {
 		chrome.storage.sync.set({'siftedSetting': setSiftedSetting}, function() {
-			console.log("Installed default 'siftedSetting' value");
+			if (storageArray["devoptions"] == 1) {
+				console.log("Installed default 'siftedSetting' value");
+			}
 		});
 	}
 
@@ -128,7 +145,11 @@ chrome.storage.sync.get(['chartbeatapi', 'defaultsite', 'devoptions', 'lballsite
 
 /* This sets the array of chartbeat sites */
 
-var sitearray = ["dispatch.com","10tv.com","971thefan.com","thisweeknews.com","capital-style.com","columbusalive.com","columbuscrave.com","columbusparent.com","buckeyextra.dispatch.com","bluejacketsxtra.dispatch.com"];
+var siteArray = {0: "dispatch.com", 1: "10tv.com", 2: "971thefan.com", 3: "thisweeknews.com", 4: "capital-style.com", 5: "columbusalive.com", 6: "columbuscrave.com", 7: "columbusparent.com", 8: "buckeyextra.dispatch.com", 9: "bluejacketsxtra.dispatch.com"};
+
+if (storageArray["devoptions"] == 1) {
+	console.log(siteArray);
+}
 
 function clearheader() {
 
@@ -190,11 +211,11 @@ function sitenav(pagetype,tag) {
 		
 	url = "http://www.dispatch.com/content/labs/extension/chartbeat-plugin.html?host=";
 
-	listmarkup = "<select id='site-list'><option value=''>Choose Site</option>";
+	listmarkup = "<select id='site-list'><option value='' selected>Choose Site</option>";
 	listmarkup += "<option value=''>==============</option>";
-		
-	for (var i=0;i<sitearray.length;i++) {
-		listmarkup += "<option value='" + url + sitearray[i] + "'>" + sitearray[i].replace(".dispatch.com", ""); + "</option>";
+	
+	for (var i in siteArray) {
+		listmarkup += "<option value='" + url + siteArray[i] + "'>" + siteArray[i].replace(".dispatch.com", ""); + "</option>";
 	}
 	
 	listmarkup += "</select>";
@@ -218,7 +239,10 @@ function sitepopup(pagetype,tag) {
 		apikey_string = "&amp;apikey=" + apikey;
 	} else if (pagetype == "lb") {
 		url = "http://chartbeat.com/labs/bigboard/?menu=yes&host=";
-		sitelist = sitearray.join();
+		
+		for (var i in siteArray) {
+			sitelist += siteArray[i]+",";
+		}
 	}
 	
 	listmarkup = listmarkup + "<div id='site-popup'><div id='site-popup-title' class='open-list'>Choose Sites</div>";
@@ -229,8 +253,8 @@ function sitepopup(pagetype,tag) {
 		listmarkup = listmarkup + "<li><a href='" + url + sitelist + "'><strong>All Sites</strong></a></li>";
 	}
 	
-	for (var i=0;i<sitearray.length;i++) {
-		listmarkup = listmarkup + "<li><a href='" + url + sitearray[i] + apikey_string + "'>" + sitearray[i].replace(".dispatch.com", ""); + "</a></li>";
+	for (var i in siteArray) {
+		listmarkup = listmarkup + "<li><a href='" + url + siteArray[i] + apikey_string + "'>" + siteArray[i].replace(".dispatch.com", ""); + "</a></li>";
 	}
 	
 	listmarkup = listmarkup + "</a></ul></div></div>";
@@ -278,12 +302,21 @@ function getquerystrvar(key) {
 }
 
 function setdefaultsite(host) {
+	var sitelist = "";
 
 	chrome.storage.sync.get(["lballsites"], function(syncstorage) {
 		
-		if (syncstorage.lballsites == "yes" && getquerystrvar("host").length < 29 && getquerystrvar("menu") != "yes") {
-			$(location).attr("href","http://chartbeat.com/labs/bigboard/?host="+sitearray.join());
-			console.log("Redirect triggered based on syncstorage.lballsites");
+		if (syncstorage.lballsites == 1 && getquerystrvar("host").length < 29 && getquerystrvar("menu") != "yes") {
+		
+			for (var i in siteArray) {
+				sitelist += siteArray[i]+",";
+			}
+		
+			$(location).attr("href","http://chartbeat.com/labs/bigboard/?host="+sitelist);
+			
+			if (storageArray["devoptions"] == 1) {
+				console.log("Redirect triggered based on syncstorage.lballsites");
+			}
 		}
 	
 	});
