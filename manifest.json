@@ -2,7 +2,7 @@
 	"name": "Dispatch Digital Toolbox",
 	"description": "The essential toolkit for the Dispatch Media Group.",
 	"manifest_version": 2,
-	"version": "0.143", 
+	"version": "0.144", 
 	"icons": {
 		"128": "images/icon128.png",
 		"16": "images/icon16.png",
@@ -31,5 +31,5 @@
 		"js": [ "js/jquery.min.js", "js/functions.js", "js/chartbeat-mosaic.js" ]
 	} ],
 	
-  	"permissions": ["*://*.dispatch.com/*", "storage"]
+  	"permissions": ["*://*.dispatch.com/*", "storage", "tabs"]
 }

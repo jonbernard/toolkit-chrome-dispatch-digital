@@ -86,12 +86,12 @@ chrome storage api and checks to see if items are set. If not.
 It will set them.
 */
 
-
-chrome.storage.sync.get(['chartbeatapi', 'defaultsite', 'devoptions', 'lballsites'], function(syncstorage) {
+chrome.storage.sync.get(['chartbeatapi', 'defaultsite', 'devoptions', 'lballsites', 'siftedSetting'], function(syncstorage) {
 	
 	var setchartbeatapi = "aa9eb4c1cd9790ca445b4d0d6dc4b446";
 	var setdefaultsite = "";
 	var setdevoptions = "";
+	var setSiftedSetting = "";
 	var lballsites = 0;
 	
 	if (syncstorage.chartbeatapi == null || syncstorage.chartbeatapi == "478dc9040abea1cf7e5529c938a8e501") {
@@ -107,7 +107,7 @@ chrome.storage.sync.get(['chartbeatapi', 'defaultsite', 'devoptions', 'lballsite
 	}
 	
 	if (syncstorage.devoptions == null) {
-		chrome.storage.sync.set({'devoptions': devoptions}, function() {
+		chrome.storage.sync.set({'devoptions': setdevoptions}, function() {
 			console.log("Installed default 'devoptions' value");
 		});
 	}
@@ -115,6 +115,12 @@ chrome.storage.sync.get(['chartbeatapi', 'defaultsite', 'devoptions', 'lballsite
 	if (syncstorage.lballsites == null) {
 		chrome.storage.sync.set({'lballsites': lballsites}, function() {
 			console.log("Installed default 'lballsites' value");
+		});
+	}
+	
+	if (syncstorage.siftedSetting == null) {
+		chrome.storage.sync.set({'siftedSetting': setSiftedSetting}, function() {
+			console.log("Installed default 'siftedSetting' value");
 		});
 	}
 
@@ -249,35 +255,6 @@ function sitepopupfn(height) {
 				height:'20px'
 			});
 	});
-	
-	
-	
-	
-/*
-	$("#site-popup").hover(function(){
-		var divclass = $(this).attr("class");
-		
-		if (divclass == "open-list") {
-			$("#site-popup").css("position", "fixed").css("top", "14px").css("right", "10px").css("z-index", "100").css("cursor", "auto");
-			$("#site-popup").animate({
-				top:'14px',
-				right:'10px',
-				height:height
-			});
-			$("#site-popup-title").removeClass("open-list").addClass("close-list");
-		}
-		
-		if (divclass == "close-list" || divclass == "close close-list") {
-			$("#site-popup-title").removeClass("close-list").addClass("open-list");
-			$("#site-popup").animate({
-				top:'14px',
-				right:'10px',
-				height:'20px'
-			});
-			$("#site-popup").css("cursor", "pointer");
-		}
-		
-	});*/
 	
 }
 

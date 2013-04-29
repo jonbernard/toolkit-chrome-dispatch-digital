@@ -44,6 +44,38 @@ ul {
 	padding: 0 0 0 20px;
 }
 
+#siftedOptions {
+	background-color: #ddd;
+	padding: 10px;
+	margin: 15px 0 10px 0;
+	color: #333;
+	text-shadow: none;
+	-webkit-border-radius: 10px;
+}
+
+#siftedOptions a {
+	color: #333;
+	border-bottom: 1px dotted #333;
+}
+
+#siftedOptions a:hover {
+	border-bottom: 1px solid #333;
+}
+
+#siftedOptions embed {
+	display: inline-block;
+	float: left;
+	width: 78px;
+	height: 35px;
+	margin: 1px 10px 0 0;
+}
+
+#siftedOptions ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
 #nav, #Visualize {
 	padding: 0;
 }

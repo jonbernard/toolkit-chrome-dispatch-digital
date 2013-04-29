@@ -5,6 +5,7 @@ function save_options() {
 	var defaultsite = document.getElementById("site-list").value;
 	var devoptions = document.getElementById("dev-select").value;
 	var lballsites = document.getElementById("lballsites").value;
+	var siftedSetting = document.getElementById("siftedSetting").value;
 	
 	chrome.storage.sync.set({'chartbeatapi': chartbeatapi}, function() {
 		console.log('chartbeatapi saved (' + chartbeatapi + ')');
@@ -20,6 +21,10 @@ function save_options() {
 	
 	chrome.storage.sync.set({'lballsites': lballsites}, function() {
 		console.log('lballsites saved (' + lballsites + ')');
+	});
+	
+	chrome.storage.sync.set({'siftedSetting': siftedSetting}, function() {
+		console.log('siftedSetting saved (' + siftedSetting + ')');
 	});
 
 	// Update status to let user know options were saved.
@@ -41,6 +46,7 @@ function reset_options() {
 		var defaultsite = '';
 		var devoptions = '';
 		var lballsites = '';
+		var siftedSetting = '';
 		
 		chrome.storage.sync.set({'chartbeatapi': chartbeatapi}, function() {
 			console.log('chartbeatapi removed');
@@ -57,6 +63,10 @@ function reset_options() {
 		chrome.storage.sync.set({'lballsites': lballsites}, function() {
 			console.log('lballsites removed');
 		});
+		
+		chrome.storage.sync.set({'siftedSetting': siftedSetting}, function() {
+			console.log('siftedSetting removed');
+		});
 	
 		var status = document.getElementById("status");
 		status.innerHTML = "Options removed.";
@@ -69,6 +79,7 @@ function reset_options() {
 		$("#site-list").val("");
 		$("#dev-select").val("no");
 		$("#lballsites").val("0");
+		$("#siftedSetting").val("no");
 	
 	}
   
@@ -77,11 +88,12 @@ function reset_options() {
 // Restores select box state to saved value from storage.sync.
 function restore_options() {
 	
-	chrome.storage.sync.get(['chartbeatapi', 'defaultsite', 'devoptions', 'lballsites'], function(syncstorage) {					  
+	chrome.storage.sync.get(['chartbeatapi', 'defaultsite', 'devoptions', 'lballsites', 'siftedSetting'], function(syncstorage) {					  
 		var chartbeatapi = syncstorage.chartbeatapi;
 		var defaultsite = syncstorage.defaultsite;
 		var devoptions = syncstorage.devoptions;
 		var lballsites = syncstorage.lballsites;
+		var siftedSetting = syncstorage.siftedSetting;
 		
 		// console.log('chartbeatapi: '+syncstorage.chartbeatapi+' || defaultsite: '+syncstorage.defaultsite+' || devoptions: '+syncstorage.devoptions+' || lballsites: '+syncstorage.lballsites);
 			
@@ -93,6 +105,7 @@ function restore_options() {
 		$("#site-list").val(defaultsite);
 		$("#dev-select").val(devoptions);
 		$("#lballsites").val(lballsites);
+		$("#siftedSetting").val(siftedSetting);
 	});
 }
 

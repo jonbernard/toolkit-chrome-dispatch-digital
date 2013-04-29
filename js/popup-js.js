@@ -1,6 +1,6 @@
 $(document).ready(function() {
 		
-	chrome.storage.sync.get(['chartbeatapi', 'defaultsite', 'devoptions'], function(syncstorage) {
+	chrome.storage.sync.get(['chartbeatapi', 'defaultsite', 'devoptions', 'siftedSetting'], function(syncstorage) {
 		
 		if (syncstorage.devoptions == "yes") {
 			var devreturn = "";
@@ -17,6 +17,25 @@ $(document).ready(function() {
 				
 		} else {
 			$("#dev-links").css("display","none");
+		}
+		
+		if (syncstorage.siftedSetting == "yes") {
+			chrome.tabs.getSelected(null, function(tab) {
+				var baseUrl = "http://digitalbuild.dispatch.com/content/system/modules/com.dispatch.taddclient/index.html";
+				var siftedReturn = "";
+				$("#siftedOptions").css("display","block");
+				var sifterLinkArr = [[baseUrl, "Sifted Client"], [baseUrl+"?asset="+tab.url, "Add Current Asset to Package"]];
+				console.log(sifterLinkArr);
+				siftedReturn += "<embed src=\"http://digitalbuild.dispatch.com/content/system/modules/com.dispatch.taddclient/img/sifted-nameplate.svg\" type=\"image/svg+xml\"><ul>";
+				var i;
+				for (i = 0; i < sifterLinkArr.length; ++i) {
+					siftedReturn += "<li><a href='" + sifterLinkArr[i][0] + "' target='_blank'>" + sifterLinkArr[i][1] + "</a></li>";
+				}
+				siftedReturn += "</ul>";
+				$("#siftedOptions").html(siftedReturn);
+			});
+		} else {
+			$("#siftedOptions").css("display","none");
 		}
 		
 		$("#nav li").click(function () {
