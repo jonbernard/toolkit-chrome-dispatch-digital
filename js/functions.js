@@ -97,8 +97,8 @@ chrome.storage.sync.get(['chartbeatapi', 'defaultsite', 'devoptions', 'lballsite
 	
 	var setchartbeatapi = "";
 	var setdefaultsite = "";
-	var setdevoptions = "";
-	var setSiftedSetting = "";
+	var setdevoptions = 0;
+	var setSiftedSetting = 1;
 	var lballsites = 0;
 	
 	if (syncstorage.chartbeatapi == null) {
@@ -211,8 +211,8 @@ function sitenav(pagetype,tag) {
 		
 	url = "http://www.dispatch.com/content/labs/extension/chartbeat-plugin.html?host=";
 
-	listmarkup = "<select id='site-list'><option value='' selected>Choose Site</option>";
-	listmarkup += "<option value=''>==============</option>";
+	listmarkup = "<select id='site-list'><option selected>Choose Site</option>";
+	listmarkup += "<option>==============</option>";
 	
 	for (var i in siteArray) {
 		listmarkup += "<option value='" + url + siteArray[i] + "'>" + siteArray[i].replace(".dispatch.com", ""); + "</option>";

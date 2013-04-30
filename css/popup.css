@@ -1,17 +1,32 @@
 @charset "utf-8";
 /* CSS Document */
+html {
+	height: 420px;/*
+	min-height: 410px;
+	max-height: 440px;*/
+}
 
 body {
 	width: 400px;
-	background-color: #222;
+	background-color: #fff;
 	font-family: Helvetica,Arial,sans-serif;
 	font-size: 14px;
 	color: #f0f0f0;
 	text-shadow: 2px 2px 5px black;
+	padding: 0;
+	margin: 0;
+	height: 420px;
+	overflow: hidden;
+}
+
+#site-container {
+	background-color: #222;
 	padding: 10px;
 	margin: 0;
-	max-height: 410px;
-	overflow: hidden;
+	-webkit-border-radius: 10px;
+	height: 420px;
+	overflow-x: hidden;
+	overflow-y: auto;
 }
 
 a {

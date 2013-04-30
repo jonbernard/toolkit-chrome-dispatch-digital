@@ -4,34 +4,36 @@
 	<link rel="stylesheet" type="text/css" href="css/popup.css" />
 </head>
 <body>
-	<header>
-		<h1>Toolbox</h1><a href="#" id="options">Options</a>
-		<ul id="nav">
-			<li rel="quicklinks"><a href="#">Quick Links</a></li>
-			<li rel="chartbeat"><a href="#">Trending Now</a></li>
-		</ul>
-	</header>
-	<div id="content-primary">
-		<div id="quicklinks" class="panel active">
-			<div id="standard-links">
-				<h2>Quick Links:</h2>
-				<ul>
-					<li><a href="http://dispatch.com/workplace" target="_blank">OpenCMS Production Environment</a></li>
-					<li><a href="http://dispatch.com/workplaceqa" target="_blank">OpenCMS QA Environment</a></li>
-					<li><a href="https://members.exacttarget.com/default.aspx" target="_blank">ExactTarget Newsletters</a></li>
-					<li><a href="https://backlot.ooyala.com/backlot/web" target="_blank">Ooyala Backlot</a></li>
-					<li><a href="https://sc.omniture.com/login/" target="_blank">Adobe Omniture</a></li>
-				</ul>
+	<div id="site-container">
+		<header>
+			<h1>Toolbox</h1><a href="#" id="options">Options</a>
+			<ul id="nav">
+				<li rel="quicklinks"><a href="#">Quick Links</a></li>
+				<li rel="chartbeat"><a href="#">Trending Now</a></li>
+			</ul>
+		</header>
+		<div id="content-primary">
+			<div id="quicklinks" class="panel active">
+				<div id="standard-links">
+					<h2>Quick Links:</h2>
+					<ul>
+						<li><a href="http://dispatch.com/workplace" target="_blank">OpenCMS Production Environment</a></li>
+						<li><a href="http://dispatch.com/workplaceqa" target="_blank">OpenCMS QA Environment</a></li>
+						<li><a href="https://members.exacttarget.com/default.aspx" target="_blank">ExactTarget Newsletters</a></li>
+						<li><a href="https://backlot.ooyala.com/backlot/web" target="_blank">Ooyala Backlot</a></li>
+						<li><a href="https://sc.omniture.com/login/" target="_blank">Adobe Omniture</a></li>
+					</ul>
+				</div>
+				
+				<div id="siftedOptions"></div>
+				
+				<div id="dev-links"></div>
+				
 			</div>
-			
-			<div id="siftedOptions"></div>
-			
-			<div id="dev-links"></div>
-			
-		</div>
-		<div id="chartbeat" class="panel">
-			<div id="chartbeatnav"></div>
-			<div id="chartbeatajax"></div>
+			<div id="chartbeat" class="panel">
+				<div id="chartbeatnav"></div>
+				<div id="chartbeatajax"></div>
+			</div>
 		</div>
 	</div>
 	<script type="text/javascript" src="js/jquery.min.js"></script>

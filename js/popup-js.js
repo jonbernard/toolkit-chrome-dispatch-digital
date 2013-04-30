@@ -27,7 +27,7 @@ $(document).ready(function() {
 			$("#dev-links").css("display","none");
 		}
 		
-		if (syncstorage.siftedSetting == 1) {
+		if (syncstorage.siftedSetting == 1 || !syncstorage.siftedSetting) {
 			chrome.tabs.getSelected(null, function(tab) {
 				var baseUrl = "http://digitalbuild.dispatch.com/content/system/modules/com.dispatch.taddclient/index.html";
 				var siftedReturn = "";
@@ -91,8 +91,9 @@ $(document).ready(function() {
 						$("#trendinglink").attr("href","http://chartbeat.com/labs/bigboard/");
 						$("#mosaiclink").attr("href", "http://chartbeat.com/labs/bigboardmosaic/");
 				}
-					
-				$("#site-list").val("http://www.dispatch.com/content/labs/extension/chartbeat-plugin.html?host=" + syncstorage.defaultsite);
+				if (syncstorage.defaultsite !== "") {
+					$("#site-list").val("http://www.dispatch.com/content/labs/extension/chartbeat-plugin.html?host=" + syncstorage.defaultsite);
+				}
 			});
 		});
 		
