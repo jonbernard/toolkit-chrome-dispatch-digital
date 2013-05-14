@@ -2,7 +2,7 @@
 	"name": "Dispatch Digital Toolkit",
 	"description": "The essential toolkit for the Dispatch Media Group.",
 	"manifest_version": 2,
-	"version": "0.149", 
+	"version": "0.150", 
 	"icons": {
 		"128": "images/icon128.png",
 		"16": "images/icon16.png",
@@ -29,6 +29,10 @@
 		"matches": [ "http://chartbeat.com/labs/bigboardmosaic/*", "https://chartbeat.com/labs/bigboardmosaic/*" ],
 		"css": [ "css/chartbeat.css" ],
 		"js": [ "js/jquery.min.js", "js/functions.js", "js/chartbeat-mosaic.js" ]
+	}, {
+		"matches": [ "https://www.toggl.com/bookmarks/*" ],
+		"css": [ "css/toggl.css" ],
+		"js": [ "js/jquery.min.js", "js/toggl.js" ]
 	} ],
 	
   	"permissions": ["*://*.dispatch.com/*", "*://*.chartbeat.com/*", "storage", "tabs"]

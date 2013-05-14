@@ -1,0 +1,28 @@
+@charset "utf-8";
+/* CSS Document */
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, menu, nav, section, time, mark, audio, video {
+	font-size: 24px !important;
+	font-family: "Myriad Pro", "HelveticaNeue", Helvetica, Arial, sans-serif !important;
+}
+
+.reports-table th, .reports-table td {
+	line-height: 54px !important;
+}
+
+header, .report-print-header .left, .relative.bookmark-container, .reports-table-caption, .plus-minus-column {
+	display: none !important;
+}
+
+#weekly-table thead .text-left {
+	width: 25%;
+}
+
+.report-print-header {
+	margin: 20px 40px 0px 40px !important;
+}
+
+.report-print-header img {
+	float: none;
+	width: 100px;
+}

@@ -1,5 +1,5 @@
 $(document).ready(function() {
-		
+	
 	chrome.storage.sync.get(['chartbeatapi', 'defaultsite', 'devoptions', 'siftedSetting'], function(syncstorage) {
 		var storageArray = {chartbeatapi: syncstorage.chartbeatapi, defaultsite: syncstorage.defaultsite, devoptions: syncstorage.devoptions, lballsites: syncstorage.lballsites, siftedSetting: syncstorage.siftedSetting};
 		
